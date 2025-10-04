@@ -1,0 +1,69 @@
+@use "@/app/_var" as *;
+
+.header {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 14px 0;
+    background-color: $background-color;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+    &__logo {
+        font-family: var(--font-agbalumo);
+        font-size: 24px;
+        color: $text-color;
+    }
+    &__inner {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__link {
+        text-decoration: none;
+        font-size: 14px;
+        margin-right: 14px;
+        color: $text-color;
+        font-weight: 500;
+    }
+    &__search {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        max-width: 300px;
+        margin-right: 14px;
+        input {
+            width: 100%;
+            background-color: #e5f1f1;
+            border-radius: 2px 0 0 2px;
+            padding: 8px 12px;
+            color: $text-color;
+        }
+        button {
+            padding: 7px 11px;
+            border: 1px solid #e5f1f1;
+            color: $text-color;
+        }
+    }
+    &__account {
+        width: 30%;
+        
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        font-size: 14px;
+        color: $text-color;
+        gap: 8px;
+        button {
+            padding: 8px 16px;
+            border-radius: 2px;
+            background-color: #e5f1f1;
+            color: $text-color;
+            font-weight: 500;
+        }
+    }
+    nav {
+        width: 100%;
+        margin-left: 32px;
+    }
+}

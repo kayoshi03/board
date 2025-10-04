@@ -1,6 +1,19 @@
+import Header from "@/components/blocks/header/Header";
+import "./globals.scss";
+import "./__var.scss";
 import type { Metadata } from "next";
+import { Agbalumo, Roboto } from "next/font/google";
 
-
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["100", "200", "300","400", "500", "600", "700", "800", "900"],
+  variable: "--font-roboto",
+})
+const agbalumo = Agbalumo({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-agbalumo",
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,7 +27,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body>
+      <body className={`${roboto.variable} ${agbalumo.variable}`}>
+        <Header/>
         {children}
       </body>
     </html>
