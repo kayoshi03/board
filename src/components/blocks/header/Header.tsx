@@ -1,3 +1,4 @@
+import Button from "@/components/UI/button/Button";
 import "./index.scss";
 
 const Header = () => { 
@@ -17,8 +18,8 @@ const Header = () => {
                         <button>Search</button>
                     </div>
                     <div className="header__account">
-                        <button>Sign In</button>
-                        <button>Sign Up</button>
+                        <Button>Sign In</Button>
+                        <Button>Sign Up</Button>
                     </div>
                 </div>
             </div>
