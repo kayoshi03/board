@@ -13,7 +13,7 @@ const roboto = Roboto({
 const agbalumo = Agbalumo({
   subsets: ["latin"],
   weight: ["400"],
-  variable: "--font-agbalumo",
+  variable: "--font-ag",
 })
 
 export const metadata: Metadata = {
@@ -30,7 +30,13 @@ export default function RootLayout({
     <html lang="ru">
       <body className={`${roboto.variable} ${agbalumo.variable}`}>
         <Header/>
-        {children}
+        <main className="main">
+          <div className="container">
+            <div className="main__inner">
+              {children}
+            </div>
+          </div>
+        </main>
         <Footer/>
       </body>
     </html>
