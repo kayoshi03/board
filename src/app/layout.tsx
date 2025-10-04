@@ -3,6 +3,7 @@ import "./globals.scss";
 import "./__var.scss";
 import type { Metadata } from "next";
 import { Agbalumo, Roboto } from "next/font/google";
+import Footer from "@/components/blocks/footer/Footer";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -30,6 +31,7 @@ export default function RootLayout({
       <body className={`${roboto.variable} ${agbalumo.variable}`}>
         <Header/>
         {children}
+        <Footer/>
       </body>
     </html>
   );

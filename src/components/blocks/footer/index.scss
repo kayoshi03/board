@@ -1,0 +1,15 @@
+@use "@/app/_var" as *;
+
+.footer {
+    width: 100%;
+    background-color: $background-color;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.05);
+    &__inner {
+        width: 100%;
+        padding: 24px 0;
+        display: flex;
+        justify-content: center;
+    }
+}
