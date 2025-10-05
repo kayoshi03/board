@@ -9,8 +9,8 @@ const Header = () => {
                 <div className="header__inner">
                     <div className="header__logo">CapiBoard</div>
                     <nav>
-                        <a className="header__link" href="#">Home</a>
-                        <a className="header__link" href="#">Dashboards</a>
+                        <a className="header__link" href="/">Home</a>
+                        <a className="header__link" href="/dashboards">Dashboards</a>
                         <a className="header__link" href="#">Contacts</a>
                     </nav>
                     <div className="header__search">
