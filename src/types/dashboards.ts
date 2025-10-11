@@ -1,14 +1,16 @@
 import {z} from "zod";
 
-const DashboardSchema = z.object({
+export const DashboardSchema = z.object({
   id: z.number().int().positive(),
-  name: z.string().min(1).max(100),
+  title: z.string(),
   user_id: z.number().int().positive(),
+  created_at: z.string().transform(val => new Date(val)),
+  updated_at: z.string().transform(val => new Date(val)),
 });
 
 export const CreateDashboardSchema = DashboardSchema.omit({ id: true })
 
-export const UpdateDashboardSchema = DashboardSchema.pick({ id: true, name: true })
+export const UpdateDashboardSchema = DashboardSchema.pick({ id: true, title: true })
 
 export const DeleteDashboardSchema = DashboardSchema.pick({ id: true })
 
