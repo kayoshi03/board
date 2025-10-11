@@ -3,10 +3,9 @@ import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd"
 import { Columns } from "../column/Columns"
 import { useState } from "react"
 import { dnd } from "@/api/request/POST/dnd"
-import { title } from "process"
 
 export const Desk = ({col}:{col:[]}) => {
-    const [items, setItems] = useState(col);
+    const [items, setItems] = useState(col.sort((a:any, b:any) => a.order - b.order));
     const onDragEnd = async(result: any) => {
         const { source, destination } = result
         if (!destination) return
