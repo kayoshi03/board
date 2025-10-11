@@ -3,6 +3,7 @@ import { DragDropContext, Draggable, Droppable } from "@hello-pangea/dnd"
 import { Columns } from "../column/Columns"
 import { useState } from "react"
 import { dnd } from "@/api/request/POST/dnd"
+import { title } from "process"
 
 export const Desk = ({col}:{col:[]}) => {
     const [items, setItems] = useState(col);
@@ -13,7 +14,7 @@ export const Desk = ({col}:{col:[]}) => {
         const updated = Array.from(items);
         const [moved] = updated.splice(source.index, 1);
         updated.splice(destination.index, 0, moved);
-        const payload = updated.map((col) => ({id: col.id, order: col.order}))
+        const payload = updated.map((col) => ({id: col.id, title: col.title, order: col.order}))
         await dnd(payload)
         setItems(updated);
     }
