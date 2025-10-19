@@ -1,9 +1,9 @@
-import Header from "@/components/blocks/header/Header";
+import Header from "@/components/layout/header/Header";
 import "./globals.scss";
-import "./__var.scss";
+import "@/config/__var.scss";
 import type { Metadata } from "next";
 import { Agbalumo, Roboto } from "next/font/google";
-import Footer from "@/components/blocks/footer/Footer";
+import Footer from "@/components/layout/footer/Footer";
 
 const roboto = Roboto({
   subsets: ["latin"],

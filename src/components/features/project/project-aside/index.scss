@@ -1,0 +1,40 @@
+@use "@/config/__var" as *;
+
+.aside {
+    width: min-content;
+    max-width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: $gap-2;
+    padding: $gap-3;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: $gap-2;
+         p {
+            font-size: $fz-2;
+            cursor: default;
+            margin-left: 8px;
+            padding-bottom: $gap-1;
+            border-bottom: 2px solid $background-color;
+        }
+        li {
+            padding: 4px 8px;
+            display: flex;
+            align-items: center;
+            font-size: $fz-1;
+            cursor: pointer;
+            gap: $gap-1;
+
+            &:hover {
+                border-radius: $border-radius;
+                color: $text-color;
+                background-color: $background-color;
+            }
+        }
+    }
+   
+}
