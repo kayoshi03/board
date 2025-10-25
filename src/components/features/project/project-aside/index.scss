@@ -21,14 +21,14 @@
             padding-bottom: $gap-1;
             border-bottom: 2px solid $background-color;
         }
-        li {
+        a {
             padding: 4px 8px;
             display: flex;
             align-items: center;
             font-size: $fz-1;
             cursor: pointer;
             gap: $gap-1;
-
+            color: black;
             &:hover {
                 border-radius: $border-radius;
                 color: $text-color;
