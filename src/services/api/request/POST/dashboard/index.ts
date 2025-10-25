@@ -13,7 +13,9 @@ export const updateDashboard = async (data) => {
     const res = await axios.post("dashboard/rename", data);
     return res.data;
 }
-export const deleteDashboard = async (data) => {
-    const res = await axios.post("dashboard/delete", data);
+export const deleteDashboard = async (id:number) => {
+    const res = await axios.post("/api/dashboard/delete", {
+        id: id
+    });
     return res.data;
 }
