@@ -3,9 +3,10 @@ import { Button } from "@/components"
 import { useEffect, useState } from "react"
 import { Modal } from "../../modal/Modal"
 import { createDashboard } from "@/services/api/request/POST/dashboard"
+import { useRouter } from "next/navigation"
 
 export const AddProject = () => {
-
+    const router = useRouter()
     const [show, setShow] = useState(false)
     const [title, setTitle] = useState("")
 
@@ -15,7 +16,10 @@ export const AddProject = () => {
             user_id: process.env.NEXT_PUBLIC_CURRENT_USER
         }
         const res = await createDashboard(post)
-        console.log(res)
+        if(res) {
+            router.refresh()
+            setShow(false)
+        }
     } 
 
     return ( 

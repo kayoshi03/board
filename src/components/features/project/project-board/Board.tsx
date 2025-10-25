@@ -4,7 +4,6 @@ import "./index.scss"
 
 export const Board = async() => {
     const res = await getDasboards()
-    console.log(res)
     return (
         <div className="board">
            <ProjectList list={res}/>
