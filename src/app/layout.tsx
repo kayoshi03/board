@@ -9,11 +9,13 @@ const roboto = Roboto({
   subsets: ["latin"],
   weight: ["100", "200", "300","400", "500", "600", "700", "800", "900"],
   variable: "--font-roboto",
+  display: 'swap',
 })
 const agbalumo = Agbalumo({
   subsets: ["latin"],
   weight: ["400"],
   variable: "--font-ag",
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
