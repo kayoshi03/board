@@ -1,8 +1,13 @@
 import "./index.scss";
 
-export const Button = ({children}:Readonly<{children: string}>) => {
+interface Props {
+  children: string,
+  click?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
+export const Button = ({children, click}:Props) => {
   return (
-    <button className="button">{children}</button>
+    <button onClick={click} className="button">{children}</button>
   )
 }
 
