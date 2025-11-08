@@ -1,8 +1,13 @@
-import { Project } from "@/shared/dashboard.type";
+import api from "@/services/api/interceptors";
 import axios from "axios";
 
-export const createDashboard = async (data:Project) => {
-    const res = await axios.post("/api/dashboard/create", {
+interface CreateProject {
+    title: string,
+    user_id: number
+}
+
+export const createDashboard = async (data:CreateProject) => {
+    const res = await api.post("/api/dashboard/create", {
         user_id: data.user_id,
         title: data.title
     });

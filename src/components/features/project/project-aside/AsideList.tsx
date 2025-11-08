@@ -1,23 +1,31 @@
-import { FolderKanban, Globe, Rocket, Users, CalendarDays, Bug, FileText } from "lucide-react"
+"use client"
 import { AsideItem } from "./AsideItem"
-import "./index.scss"
-import { getDasboards } from "@/services/api/request/GET/dashboards"
 import { Project } from "@/shared/dashboard.type"
+import "./index.scss"
+import { useQuery } from "react-query"
+import { getDasboards } from "@/services/api/request/GET/dashboards"
 
 
 
-export const AsideList = async() => {
-    const projects = await getDasboards()
+export const AsideList = () => {
+    const {data, isLoading} = useQuery({
+        queryKey: ["projects"],
+        queryFn: async () => await getDasboards()
+    })
+
     return (
-        <div className="aside__list">
-            <p>Ваши проекты</p>
-            <ul>
+            <div className="aside__list">
+                <p>Ваши проекты</p>
                 {
-                    projects.map((item:Project) => (
-                        <AsideItem key={item.title} title={item.title}/>
-                    ))
+                    isLoading ? <h2>Загрузка</h2> :  
+                    <ul>
+                        {
+                            data?.map((item:Project) => (
+                                <AsideItem key={item.title} title={item.title}/>
+                            ))
+                        }
+                    </ul>
                 }
-            </ul>
-        </div>
+            </div>
     )
 }

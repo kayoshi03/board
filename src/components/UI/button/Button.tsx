@@ -1,7 +1,8 @@
+import { ReactNode } from "react";
 import "./index.scss";
 
 interface Props {
-  children: string,
+  children: ReactNode,
   click?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 

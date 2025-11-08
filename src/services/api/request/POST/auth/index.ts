@@ -1,24 +1,39 @@
-import api from "@/api/interceptors"
-import { UserLogin, UserLogoutSchema, UserLoginSchema, UserLogout, UserRegister, UserRegisterSchema } from "@/types/user"
+import { setServerCookie } from "@/services/actions/server"
+import api from "@/services/api/interceptors"
 
+type Login = {
+    email: string,
+    password: string,
+    checked?: boolean
+}
 
-export const login = async (data:UserLogin) => {
-    const parsed = UserLoginSchema.parse(data)
-    const res = await api.post("user/login", parsed)
-    return res.data
+export const login = async (email, password) => {
+    const res = await api.post("api/user/login", {
+        email,
+        password,
+        checked: true
+    })
+    if(res.data.access_token){
+        localStorage.setItem("token", res.data.access_token)
+        await setServerCookie(res.data.access_token);
+        return res.data
+    }
+    else {
+        throw new Error("No access token")
+    }
 } 
-export const register = async (data:UserRegister) => {
-    const parsed = UserRegisterSchema.parse(data)
-    const res = await api.post("user/register", parsed)
+export const register = async (data) => {
+
+    const res = await api.post("api/user/register", data)
     return res.data
 
 }
-export const logout = async (data:UserLogout) => {
-    const parsed = UserLogoutSchema.parse(data)
-    const res = await api.post("user/logout", parsed)
+export const logout = async (data) => {
+
+    const res = await api.post("api/user/logout", data)
     return res.data
 }
 export const getUser = async () => {
-    const res = await api.get("user/getUser", )
+    const res = await api.get("api/user/getUser")
     return res.data
 }

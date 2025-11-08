@@ -1,26 +1,27 @@
 "use client"
 import { Button } from "@/components"
-import { useEffect, useState } from "react"
+import {useState } from "react"
 import { Modal } from "../../modal/Modal"
 import { createDashboard } from "@/services/api/request/POST/dashboard"
-import { useRouter } from "next/navigation"
+import { useMutation, useQueryClient } from "react-query"
+
 
 export const AddProject = () => {
-    const router = useRouter()
     const [show, setShow] = useState(false)
     const [title, setTitle] = useState("")
-
-    const fetch = async() => {
-        const post = {
-            title,
-            user_id: process.env.NEXT_PUBLIC_CURRENT_USER
-        }
-        const res = await createDashboard(post)
-        if(res) {
-            router.refresh()
+    const id = Number(process.env.NEXT_PUBLIC_CURRENT_USER)
+    const queryClient = useQueryClient()
+    const mutation = useMutation({
+        mutationFn: createDashboard,
+        onSuccess: () => {
+            queryClient.invalidateQueries({queryKey: ["projects"]})
             setShow(false)
         }
-    } 
+    })
+
+    const handleClick = () => {
+        mutation.mutate({title: title, user_id: id})
+    }
 
     return ( 
         <>
@@ -33,7 +34,7 @@ export const AddProject = () => {
                     </div>
                     <div className="modal__body">
                         <input name="title" value={title} onChange={(e) => setTitle(e.target.value)}/>
-                        <Button click={() => fetch()}>Создать проект</Button>
+                        <Button click={() => handleClick()}>Создать проект</Button>
                     </div>
                 </Modal> : 
                 <></>
