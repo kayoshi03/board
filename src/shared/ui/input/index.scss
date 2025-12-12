@@ -1,0 +1,8 @@
+@use "../_var" as *;
+
+.ipt {
+    width: 100%;
+    padding: .5rem 1rem;
+    border: 1px solid var(--border-color);
+    color: var(--text-color-bold);
+}

@@ -1,0 +1,36 @@
+@use "../_var" as *;
+
+.btn {
+    width: 100%;
+    max-width: max-content;
+    padding: 0.75rem 2rem;
+    transition: all .2s ease-in-out;
+    &-primary {
+        background-color: var(--accent-color);
+        color: var(--text-color);
+        &:hover {
+            background-color: var(--accent-color-hover);
+        }
+    }
+    &-secondary {
+        background-color: var(--background-color);
+        color: var(--accent-color);
+        &:hover {
+            background-color: var(--border-color-hover);
+        }
+    }
+    &-third {
+        background-color: var(--background-color);
+        color: var(--text-color-bold);
+        border: 1px solid var(--border-color);
+        &:hover {
+            border-color: var(--border-color-hover);
+        }
+    }
+    &:disabled {
+        background-color: var(--background-color);
+        color: var(--border-color-hover);
+        border: 2px solid var(--border-color);
+        cursor: default;
+    }
+}
