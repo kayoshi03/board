@@ -1,0 +1,12 @@
+.link {
+    text-decoration: none;
+    color: var(--text-color-bold);
+    font-weight: 500;
+    font-size: 1rem;
+    &:hover {
+        color: var(--accent-color);
+    }
+    &__active {
+        color: var(--accent-color-hover);
+    }
+}

@@ -1,2 +1,5 @@
 export {Button} from "./button/Button"
+export {ButtonNav} from "./button/ButtonNav"
+export {LinkNav} from "./LinkNav/LinkNav"
+export {Logotype} from "./logotype/Logotype"
 export {Input} from "./input/Input"

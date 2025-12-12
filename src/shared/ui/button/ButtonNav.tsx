@@ -1,18 +1,17 @@
+import Link from "next/link"
 import { FC, ReactNode } from "react"
 import "./index.scss"
 
 type Props = {
     children: ReactNode
     selector?: "primary" | "secondary" | "third" | undefined
-    disabled?: boolean
-    handler?: () => void
+    href: string
 }
 
-export const Button:FC<Props> = ({
+export const ButtonNav:FC<Props> = ({
     children, 
-    selector, 
-    disabled, 
-    handler
+    selector,
+    href 
     }) => {
     let defaultSelector = `btn btn-${selector}`;
     if(!selector) {
@@ -20,13 +19,12 @@ export const Button:FC<Props> = ({
     }
     
     return (
-        <button
+        <Link
+            href={href}
             type="button"
             className={defaultSelector} 
-            onClick={handler} 
-            disabled={disabled}
         >
                 {children}
-        </button>
+        </Link>
     )
 }

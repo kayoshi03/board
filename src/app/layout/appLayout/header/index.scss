@@ -1,0 +1,16 @@
+.header {
+    background-color: var(--background-color);
+    height: 4rem;
+    margin: 0 auto;
+    &__wrapper {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__nav {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+}
